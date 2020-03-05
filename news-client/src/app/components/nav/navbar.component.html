@@ -1,7 +1,7 @@
 <div class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" >Top News</a>
+      <a class="navbar-brand" routerLink="/news">Top News</a>
     </div>
     <div class="navbar-header">
       <a class="navbar-brand" >Categories</a>
@@ -12,10 +12,10 @@
 
     <div class="collapse navbar-collapse">
       <div class="navbar-header navbar-right">
-        <button class="btn btn-default" >
+        <button class="btn btn-default" [disabled]="isDisabled()" (click)="changeCountry('gb')">
           GB
         </button>
-        <button class="btn btn-default" >
+        <button class="btn btn-default" [disabled]="isDisabled()" (click)="changeCountry('us')">
           US
         </button>
       </div>
