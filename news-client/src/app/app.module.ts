@@ -13,6 +13,11 @@ import { appRoutes } from 'src/routes';
 import { ArticleComponent } from './components/article/article.component';
 import { StorageService } from 'src/services/storage.service';
 import { AddTokenInterceptor } from 'src/services/interceptors/http-interceptor';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { CategoryListComponent } from './components/categories/category-list.component';
+import { SubjectProvider } from 'src/services/subject-provider.service';
+import { CategoryThumbnailComponent } from './components/category-thumbnails/category-thumbnail.component';
+import { ExpandCategoryComponent } from './components/categories/expand-category.component';
 
 
 @NgModule({
@@ -21,7 +26,11 @@ import { AddTokenInterceptor } from 'src/services/interceptors/http-interceptor'
     NewsListComponent,
     NewsThumbnailComponent,
     NavbarComponent,
-    ArticleComponent
+    ArticleComponent,
+    CategoriesComponent,
+    CategoryListComponent,
+    CategoryThumbnailComponent,
+    ExpandCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,8 @@ import { AddTokenInterceptor } from 'src/services/interceptors/http-interceptor'
     NewsService,
     NewsListResolver,
     StorageService,
-    { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AddTokenInterceptor, multi: true },
+    SubjectProvider
   ],
   bootstrap: [AppComponent]
 })

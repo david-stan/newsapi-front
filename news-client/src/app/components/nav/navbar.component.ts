@@ -25,6 +25,12 @@ export class NavbarComponent {
     if (url === '/news') {
       this.newsService.getTopNews();
     }
+    if (url === '/categories') {
+      this.newsService.updateAllCategories();
+    }
+    if (url.startsWith('/expand')) {
+      this.newsService.getNewsByCategoryNonPaged(url.split('/expand/')[1]);
+    }
   }
 
 }

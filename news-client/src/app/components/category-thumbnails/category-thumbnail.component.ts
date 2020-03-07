@@ -4,11 +4,11 @@ import { StorageService } from 'src/services/storage.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-news-thumbnail',
-  templateUrl: './news-thumbnail.component.html',
-  styleUrls: ['./news-thumbnail.component.css']
+  selector: 'app-category-thumbnail',
+  templateUrl: './category-thumbnail.component.html',
+  styleUrls: ['./category-thumbnail.component.css']
 })
-export class NewsThumbnailComponent {
+export class CategoryThumbnailComponent {
   @Input() article: IArticle;
 
   constructor(private storage: StorageService,
