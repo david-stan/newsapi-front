@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class StorageService {
 
   public data: any;
+  public query: string;
 
   constructor() {
 
@@ -15,6 +16,14 @@ export class StorageService {
 
   retrieveData(): any {
     return this.data;
+  }
+
+  storeQueryString(query: string) {
+    this.query = query;
+  }
+
+  retrieveQueryString() {
+    return this.query;
   }
 
 }

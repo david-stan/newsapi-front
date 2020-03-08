@@ -21,6 +21,9 @@ export class NewsService {
   private categorySource = new Subject<any>();
   selectedCategoryChanges$ = this.categorySource.asObservable();
 
+  private searchSource = new Subject<any>();
+  selectedSearchChanges$ = this.searchSource.asObservable();
+
   getTopNews(): void {
     this.http.get('http://newsapi.org/v2/top-headlines?country=' + localStorage.getItem('country'))
       .pipe(catchError(this.handleError<any>('getEvents', []))
@@ -53,6 +56,15 @@ export class NewsService {
                       + '&pageSize=5')
         .pipe(map((result: any) => {
           this.subjectProvider.getSubject(category).next(result.articles);
+        })).subscribe();
+  }
+
+  searchQuery(query): void {
+    this.http.get('http://newsapi.org/v2/top-headlines?country='
+                      + localStorage.getItem('country')
+                      + '&q=' + query)
+        .pipe(map((result: any) => {
+          this.searchSource.next(result.articles);
         })).subscribe();
   }
 

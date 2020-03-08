@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
@@ -18,6 +19,7 @@ import { CategoryListComponent } from './components/categories/category-list.com
 import { SubjectProvider } from 'src/services/subject-provider.service';
 import { CategoryThumbnailComponent } from './components/category-thumbnails/category-thumbnail.component';
 import { ExpandCategoryComponent } from './components/categories/expand-category.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -30,10 +32,12 @@ import { ExpandCategoryComponent } from './components/categories/expand-category
     CategoriesComponent,
     CategoryListComponent,
     CategoryThumbnailComponent,
-    ExpandCategoryComponent
+    ExpandCategoryComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes)

@@ -1,6 +1,7 @@
 import { Component, ApplicationRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { NewsService } from 'src/services/news.service';
+import { StorageService } from 'src/services/storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,8 @@ import { NewsService } from 'src/services/news.service';
 export class NavbarComponent {
 
   constructor(private router: Router,
-              private newsService: NewsService) {
+              private newsService: NewsService,
+              private storage: StorageService) {
     localStorage.setItem('country', 'gb');
   }
 
@@ -30,6 +32,9 @@ export class NavbarComponent {
     }
     if (url.startsWith('/expand')) {
       this.newsService.getNewsByCategoryNonPaged(url.split('/expand/')[1]);
+    }
+    if (url === '/search') {
+      this.newsService.searchQuery(this.storage.retrieveQueryString());
     }
   }
 
