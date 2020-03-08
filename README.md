@@ -6,7 +6,7 @@ Simple front-end application using newsapi.org in Angular 8
 ### Clone the repository
 
 ```shell
-git clone 
+git clone https://github.com/david-stan/newsapi-front.git
 cd news-client
 ```
 
